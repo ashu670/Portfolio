@@ -25,7 +25,7 @@ export default function KeyProjects() {
   return (
     <section id="key-projects" className="kp">
       <div className="container">
-        <p className="section-label">01 // PROJECTS</p>
+        <p className="section-label">02 // key projects</p>
         <div className="kp__header">
           <h2 className="section-title">Things I've Built</h2>
           <p className="kp__sub">Handpicked projects — production-grade work, not tutorials.</p>

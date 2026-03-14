@@ -13,7 +13,7 @@ export default function Projects() {
       <div className="container">
         <div className="projects__header">
           <div>
-            <p className="section-label">02 // PROJECTS</p>
+            <p className="section-label">03 // projects</p>
             <h2 className="section-title">My Repositories</h2>
           </div>
           <div className="projects__live-badge">
