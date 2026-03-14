@@ -2,6 +2,8 @@
 
 A modern, high-performance developer portfolio built with a React frontend and an Express Node.js backend. This portfolio features a sleek, dark-themed space aesthetic with cyan and purple neon bloom effects, and it dynamically integrates with the GitHub API to showcase your latest repositories and statistics.
 
+**[🌐 View Live Demo](https://portfolio-green-eight-12.vercel.app/)**
+
 ![Clean Architecture](https://img.shields.io/badge/Architecture-Clean-brightgreen)
 ![React](https://img.shields.io/badge/Frontend-React_18-blue)
 ![Node.js](https://img.shields.io/badge/Backend-Node.js_Express-green)
