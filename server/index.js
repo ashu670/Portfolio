@@ -8,7 +8,9 @@ const path = require("path");
 const app = express();
 const cache = new NodeCache({ stdTTL: 300 });
 
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME || "";

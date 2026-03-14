@@ -4,8 +4,11 @@ export function useGitHubProfile() {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  // Note: This project uses Create React App (react-scripts) based on package.json, so we use process.env.REACT_APP_API_URL
+  const API_BASE = process.env.REACT_APP_API_URL || "";
+
   useEffect(() => {
-    fetch("/api/github/profile")
+    fetch(`${API_BASE}/api/github/profile`)
       .then(r => r.json())
       .then(data => { setProfile(data); setLoading(false); })
       .catch(e => { setError(e.message); setLoading(false); });
@@ -20,19 +23,27 @@ export function useGitHubRepos() {
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
 
+  const API_BASE = process.env.REACT_APP_API_URL || "";
+
   useEffect(() => {
-    fetch("/api/github/repos")
-      .then(r => r.json())
+    fetch(`${API_BASE}/api/github/repos`)
+      .then(async r => {
+        if (!r.ok) {
+          const text = await r.text();
+          throw new Error(text.startsWith('<') ? 'Received HTML error instead of JSON API response. Verify backend URL.' : 'API Error');
+        }
+        return r.json();
+      })
       .then(data => { setRepos(Array.isArray(data) ? data : []); setLoading(false); })
       .catch(e => { setError(e.message); setLoading(false); });
   }, []);
 
-  const languages = ["all", ...new Set(repos.map(r => r.language).filter(Boolean))].sort((a,b) => a==="all"?-1:a.localeCompare(b));
+  const languages = ["all", ...new Set(repos.map(r => r.language).filter(Boolean))].sort((a, b) => a === "all" ? -1 : a.localeCompare(b));
 
   const filtered = repos.filter(r => {
     const matchLang = filter === "all" || r.language === filter;
     const q = search.toLowerCase();
-    const matchSearch = !q || r.name.toLowerCase().includes(q) || (r.description||"").toLowerCase().includes(q) || (r.topics||[]).some(t=>t.includes(q));
+    const matchSearch = !q || r.name.toLowerCase().includes(q) || (r.description || "").toLowerCase().includes(q) || (r.topics || []).some(t => t.includes(q));
     return matchLang && matchSearch;
   });
 
