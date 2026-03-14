@@ -45,14 +45,13 @@ app.get("/api/github/repos", async (req, res) => {
     while (hasMore) {
       const { data } = await axios.get(`https://api.github.com/users/${GITHUB_USERNAME}/repos`, {
         headers: githubHeaders,
-        params: { per_page: 100, page, sort: "updated", direction: "desc" },
+        params: { type: "all", per_page: 100, page, sort: "created", direction: "desc" },
       });
       allRepos = [...allRepos, ...data];
       hasMore = data.length === 100;
       page++;
     }
-    const ownRepos = allRepos.filter((r) => !r.fork);
-    const enriched = ownRepos.map((repo) => ({
+    let enriched = allRepos.map((repo) => ({
       id: repo.id,
       name: repo.name,
       description: repo.description,
@@ -65,6 +64,7 @@ app.get("/api/github/repos", async (req, res) => {
       updated_at: repo.updated_at,
       created_at: repo.created_at,
     }));
+    enriched.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
     cache.set(cacheKey, enriched);
     res.json(enriched);
   } catch (err) {
