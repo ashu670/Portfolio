@@ -1,0 +1,6 @@
+.footer{border-top:1px solid var(--border);padding:2rem 0;}
+.footer__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer__brand{font-family:var(--font-mono);font-size:0.85rem;color:var(--text-secondary);}
+.footer__bracket{color:var(--accent);}
+.footer__note{font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);}
+.footer__year{font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);}
