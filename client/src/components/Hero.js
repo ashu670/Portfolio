@@ -24,6 +24,7 @@ function useTypewriter(texts, speed = 80, pause = 2000) {
 
 export default function Hero({ profile }) {
   const typed = useTypewriter(TITLES);
+  const resUrl = process.env.REACT_APP_RESUME_LINK;
   return (
     <section id="hero" className="hero">
       <div className="hero__grid" aria-hidden="true" />
@@ -47,8 +48,9 @@ export default function Hero({ profile }) {
             {profile?.bio || "B.Tech CSE student at LPU. Full-stack developer passionate about building production-grade web apps using React, Node.js, and scalable backend systems."}
           </p>
           <div className="hero__actions fade-up" style={{ animationDelay: "0.6s" }}>
-            <a href="#projects" className="btn btn-primary">View Projects ↓</a>
-            <a href="#contact" className="btn btn-ghost">Get in Touch</a>
+            <a href={resUrl || "#"} target="_blank" rel="noopener noreferrer" className="btn btn-primary">My Resume</a>
+            <a href="#projects" className="btn btn-ghost">View Projects ↓</a>
+            <a href="#contact" className="btn btn-minimal">Get in Touch</a>
           </div>
         </div>
         <div className="hero__avatar-wrap fade-up" style={{ animationDelay: "0.3s" }}>

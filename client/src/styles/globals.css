@@ -201,6 +201,16 @@ body::before {
   background: var(--accent-dim);
 }
 
+.btn-minimal {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+
+.btn-minimal:hover {
+  color: var(--text-primary);
+}
+
 .lang-dot {
   width: 10px;
   height: 10px;
