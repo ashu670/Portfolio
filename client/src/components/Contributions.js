@@ -30,7 +30,10 @@ export default function Contributions() {
   const [tooltip, setTooltip] = useState(null);
 
   useEffect(() => {
-    fetch("/api/github/contributions")
+    const API_BASE = process.env.REACT_APP_API_URL || "";
+    console.log("API URL:", process.env.REACT_APP_API_URL);
+    
+    fetch(`${API_BASE}/api/github/contributions`)
       .then(r => r.json())
       .then(d => { setData(d); setLoading(false); })
       .catch(() => setLoading(false));
