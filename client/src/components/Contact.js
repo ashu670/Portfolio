@@ -1,15 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Contact.css";
 
 export default function Contact({ profile }) {
-  const [copied, setCopied] = useState(false);
   const email = profile?.email || "abhaylal122@gmail.com";
-
-  const copy = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <section id="contact" className="contact">
@@ -23,10 +16,10 @@ export default function Contact({ profile }) {
         </p>
 
         <div className="contact__actions">
-          <button className="contact__email-btn" onClick={copy}>
+          <a href={`mailto:${email}`} className="contact__email-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-            {copied ? "Copied! ✓" : email}
-          </button>
+            {email}
+          </a>
         </div>
 
         <div className="contact__links">

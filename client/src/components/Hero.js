@@ -52,14 +52,9 @@ export default function Hero({ profile }) {
             <a href="#projects" className="btn btn-ghost">View Projects ↓</a>
             <a href="#contact" className="btn btn-minimal">Get in Touch</a>
           </div>
-        </div>
-        <div className="hero__avatar-wrap fade-up" style={{ animationDelay: "0.3s" }}>
-          <div className="hero__avatar-ring" />
-          {profile?.avatar_url
-            ? <img src={profile.avatar_url} alt={profile.name || profile.login} className="hero__avatar" />
-            : <div className="hero__avatar hero__avatar--placeholder"><span>{(profile?.login || "A")[0].toUpperCase()}</span></div>
-          }
-          <div className="hero__avatar-badge"><span className="hero__badge-dot" />available for work</div>
+          <div className="hero__availability fade-up" style={{ animationDelay: "0.7s" }}>
+            <span className="hero__badge-dot" /> available for work
+          </div>
         </div>
       </div>
       <div className="hero__scroll-hint fade-up" style={{ animationDelay: "1s" }}>

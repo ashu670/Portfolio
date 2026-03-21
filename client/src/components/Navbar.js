@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 
 const NAV_LINKS = [
-  { label: "about",    href: "#about" },
-  { label: "projects", href: "#key-projects" },
-  { label: "all repos",href: "#projects" },
-  { label: "contact",  href: "#contact" },
+  { label: "about",          href: "#about" },
+  { label: "skills",         href: "#skills" },
+  { label: "projects",       href: "#key-projects" },
+  { label: "repos",          href: "#projects" },
+  { label: "activity",       href: "#contributions" },
+  { label: "contact",        href: "#contact" },
 ];
 
 export default function Navbar({ profile }) {
@@ -36,7 +38,9 @@ export default function Navbar({ profile }) {
           ))}
           {profile?.html_url && (
             <li>
-              <a href={profile.html_url} target="_blank" rel="noopener noreferrer" className="btn btn-ghost navbar__cta">GitHub ↗</a>
+              <a href={profile.html_url} target="_blank" rel="noopener noreferrer" className="btn btn-ghost navbar__cta">
+                GitHub ↗
+              </a>
             </li>
           )}
         </ul>

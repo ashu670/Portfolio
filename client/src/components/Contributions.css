@@ -1,0 +1,180 @@
+.contrib { padding: 8rem 0; border-top: 1px solid var(--border); }
+
+.contrib__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contrib__stats { display: flex; gap: 2rem; }
+.contrib__stat { display: flex; flex-direction: column; gap: 2px; }
+.contrib__stat-n {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.contrib__stat-l {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contrib__loading {
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  padding: 4rem 0;
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);
+}
+.contrib__spinner {
+  width: 32px; height: 32px;
+  border: 2px solid var(--border); border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.contrib__error { color: var(--text-muted); font-size: 0.85rem; font-family: var(--font-mono); }
+
+.contrib__wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+/* Month labels row */
+.contrib__months {
+  display: flex;
+  margin-bottom: 4px;
+  padding-left: 0;
+}
+.contrib__month-cell {
+  width: 13px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-right: 2px;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Grid row = day labels + heatmap */
+.contrib__grid-row { display: flex; gap: 4px; }
+
+.contrib__day-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 24px;
+  flex-shrink: 0;
+}
+.contrib__day-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  height: 11px;
+  line-height: 11px;
+  display: block;
+}
+
+.contrib__grid {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+}
+
+.contrib__week {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contrib__cell {
+  width: 11px; height: 11px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.contrib__cell:hover { 
+  transform: scale(1.4); 
+  z-index: 10;
+  cursor: default; 
+}
+.contrib__cell:not(.contrib__cell--l0):hover {
+  box-shadow: 0 0 15px var(--accent);
+}
+.contrib__cell--lg { width: 13px; height: 13px; }
+
+/* Levels */
+.contrib__cell--l0 { background: var(--bg-raised); }
+.contrib__cell--l1 { 
+  background: rgba(99,255,180,0.2); 
+  box-shadow: 0 0 4px rgba(99,255,180,0.1); 
+}
+.contrib__cell--l2 { 
+  background: rgba(99,255,180,0.4); 
+  box-shadow: 0 0 6px rgba(99,255,180,0.3); 
+}
+.contrib__cell--l3 { 
+  background: rgba(99,255,180,0.7); 
+  box-shadow: 0 0 8px rgba(99,255,180,0.5); 
+}
+.contrib__cell--l4 { 
+  background: var(--accent); 
+  box-shadow: 0 0 12px var(--accent); 
+}
+
+/* Legend */
+.contrib__legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 1rem;
+  justify-content: flex-end;
+}
+.contrib__legend-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  margin: 0 4px;
+}
+
+/* Tooltip */
+.contrib__tooltip {
+  background: var(--bg-raised);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-primary);
+  pointer-events: none;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+.contrib__tooltip strong { color: var(--accent); }
+.contrib__tooltip span  { color: var(--text-muted); font-size: 0.65rem; }
+
+.contrib__footer {
+  margin-top: 1rem;
+  text-align: center;
+}
+.contrib__gh-link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+}
+.contrib__gh-link:hover { opacity: 0.7; }
