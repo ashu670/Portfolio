@@ -19,7 +19,7 @@ const COMPETITIVE = [
   {
     id: 1,
     icon: "⚡",
-    title: "50+ DSA Problems Solved",
+    title: "300+ DSA Problems Solved",
     platforms: "LeetCode & GeeksforGeeks",
     period: "Jan 2025 – Present",
     color: "var(--accent)",

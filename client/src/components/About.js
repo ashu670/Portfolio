@@ -78,7 +78,7 @@ export default function About({ profile }) {
               <span className="about__qs-l">Projects</span>
             </div>
             <div className="about__qs">
-              <span className="about__qs-n">50+</span>
+              <span className="about__qs-n">300+</span>
               <span className="about__qs-l">DSA Solved</span>
             </div>
           </div>
