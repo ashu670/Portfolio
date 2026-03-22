@@ -59,7 +59,7 @@ export default function About({ profile }) {
                 github.com/ashu670 ↗
               </a>
             )}
-            <a href="https://linkedin.com/in/abhay" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+            <a href="https://www.linkedin.com/in/abhay-lal-729b7626b/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
               LinkedIn ↗
             </a>
